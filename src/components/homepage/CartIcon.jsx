@@ -115,8 +115,8 @@ const CartIcon = () => {
         <Box
           sx={{
             width: {
-              xs: "100%",
-              sm: "100%",
+              xs: "80%",
+              sm: "80%",
               md: 400,
             },
             padding: 3,
