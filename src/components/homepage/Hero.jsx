@@ -17,7 +17,7 @@ const Hero = () => {
     arrows: false,
   };
   return (
-    <div className="slider-container mt-[3rem] px-4">
+    <div className="slider-container mt-[1.5rem] lg:mt-[3rem] px-4">
       <Slider {...settings}>
         <div className="border-none rounded-[25px]">
           <img
