@@ -114,7 +114,11 @@ const CartIcon = () => {
       >
         <Box
           sx={{
-            width: 400,
+            width: {
+              xs: "100%",
+              sm: "100%",
+              md: 400,
+            },
             padding: 3,
             minHeight: "100%",
             overflowY: "auto",
@@ -214,7 +218,7 @@ const CartIcon = () => {
 
           {/* CHECKOUT BTN STARTS HERE..... */}
 
-          <div style={{ position: "fixed", bottom: 25, width: "80%", maxWidth: "80%" }}>
+          <div style={{ position: "fixed", bottom: 25, width: "80%" }}>
             <List>
               <ListItemText
                 style={{
