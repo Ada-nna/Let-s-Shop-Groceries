@@ -69,7 +69,19 @@ const CartIcon = () => {
   };
 
   const drawerStyles = {
-    width: window.innerWidth > 600 ? "100%" : "98%",
+    width: window.innerWidth > 600 ? "100%" : "95%",
+  };
+
+  const getStyles = () => {
+    return {
+      width: window.innerWidth > 600 ? '100%' : '80%',
+      backgroundColor: "#198057",
+      color: "white",
+      display: "flex",
+      justifyContent: "space-between",
+      borderRadius: "8px",
+      padding: 10,
+    };
   };
 
   return (
@@ -133,14 +145,7 @@ const CartIcon = () => {
           }}
         >
           <ListItemButton
-            style={{
-              backgroundColor: "#198057",
-              color: "white",
-              display: "flex",
-              justifyContent: "space-between",
-              borderRadius: "8px",
-              padding: 10,
-            }}
+            style={getStyles()}
           >
             Cart Items
             <Button
