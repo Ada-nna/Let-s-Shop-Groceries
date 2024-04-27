@@ -63,11 +63,11 @@ const ModalComponent = ({
         </button>
       </div>
       <div className="lg:flex lg:items-center justify-center gap-[20px]">
-        <div className="lg:w-[300px] h-[280px] lg:h-[325px] flex items-center justify-center p-2 bg-slate-200">
+        <div className="lg:w-[300px] h-[170px] lg:h-[325px] flex items-center justify-center p-2 bg-slate-200">
           <img
             src={`https://backendgrocery.000webhostapp.com/${selectedProduct.images}`}
             alt={selectedProduct.name}
-            style={{ width: 200 }}
+            className="lg:w-[200px] w-[120px]"
           />
         </div>
 
@@ -95,7 +95,7 @@ const ModalComponent = ({
           </Typography>
           <Typography
             id="modal-modal-description"
-            sx={{ mt: 2 }}
+            sx={{ mt: 1 }}
             style={{ fontWeight: 800, fontSize: "24px", color: "#000" }}
           >
             ${selectedProduct.selling_price} &nbsp;{" "}

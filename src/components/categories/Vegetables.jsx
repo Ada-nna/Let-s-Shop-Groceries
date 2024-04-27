@@ -25,7 +25,7 @@ const Vegetables = () => {
   const { isLoggedIn } = useAuth();
 
   const handleOpen = (product) => {
-    if (isLoggedIn) {
+    if (!isLoggedIn) {
       toast.warn("Please login to add items to your cart.", { autoClose: 1500 });
     } else {
       setOpen(true);
@@ -51,7 +51,7 @@ const Vegetables = () => {
   return (
     <div>
       <Navbar />
-      <div className="bg-[#198057] h-[4rem] mt-[1.5rem] lg:mt-[3rem] flex items-center justify-center gap-x-4">
+      <div className="bg-[#198057] h-[4rem] mt-[1rem] lg:mt-[3rem] flex items-center justify-center gap-x-4">
         <img
           src={VegetableImg}
           alt="Fruit Image"
