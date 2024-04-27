@@ -69,7 +69,7 @@ const CartIcon = () => {
   };
 
   const drawerStyles = {
-    width: window.innerWidth > 600 ? "100%" : "80%",
+    width: window.innerWidth > 600 ? "100%" : "98%",
   };
 
   return (
@@ -122,7 +122,11 @@ const CartIcon = () => {
         <Box
           sx={{
             width: 400,
-            padding: 3,
+            padding: {
+              xs: 1,
+              sm: 1,
+              md: 3,
+            },
             minHeight: "100%",
             overflowY: "auto",
             bgcolor: "background.paper",
