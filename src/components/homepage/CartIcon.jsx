@@ -68,6 +68,10 @@ const CartIcon = () => {
       .toFixed(2);
   };
 
+  const drawerStyles = {
+    width: window.innerWidth > 600 ? "100%" : "80%",
+  };
+
   return (
     <>
       <button
@@ -103,6 +107,9 @@ const CartIcon = () => {
         open={drawerOpen}
         onClose={toggleDrawer(false)}
         onOpen={toggleDrawer(true)}
+        PaperProps={{
+          style: drawerStyles,
+        }}
         transitionprops={{
           component: Slide,
           direction: "left",
@@ -114,11 +121,7 @@ const CartIcon = () => {
       >
         <Box
           sx={{
-            width: {
-              xs: "80%",
-              sm: "80%",
-              md: 400,
-            },
+            width: 400,
             padding: 3,
             minHeight: "100%",
             overflowY: "auto",
