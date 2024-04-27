@@ -191,7 +191,7 @@ const CartIcon = () => {
                   key={item.id}
                   sx={{ display: "flex", justifyContent: "space-between" }}
                 >
-                  <div className=" border mr-3 h-[4rem] flex items-center justify-center p-2">
+                  <div className=" border lg:mr-3 h-[4rem] flex items-center justify-center p-2">
                     <img
                       src={`https://backendgrocery.000webhostapp.com/${item.images}`}
                       alt={item.name}
