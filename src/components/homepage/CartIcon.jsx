@@ -1,5 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
+import { Link } from "react-router-dom";
 import {
   SwipeableDrawer,
   Box,
@@ -27,10 +28,44 @@ const CartIcon = () => {
     setDrawerOpen(open);
   };
 
-  const removeFromCart = (index) => {
+  const removeFromCart = (itemId) => {
     setCartItems((currentItems) => {
-      return currentItems.filter((item, itemIndex) => itemIndex !== index);
+      // currentItems.filter((item) => item.id !== itemId)
+      return currentItems.reduce((newCart, item) => {
+        if (item.id === itemId) {
+          if (item.quantity > 1) {
+            newCart.push({ ...item, quantity: item.quantity - 1 });
+          }
+        } else {
+          newCart.push(item);
+        }
+        return newCart;
+      }, []);
     });
+  };
+
+  const calculateTotal = () => {
+    return cartItems
+      .reduce((total, item) => {
+        let quantity = parseFloat(item.quantity) || 0;
+        let price = parseFloat(item.selling_price);
+
+        if (isNaN(price)) {
+          console.error(
+            `Missing price for item: ${item.name}, Quantity: ${quantity}, Price: ${price}`
+          );
+          return total;
+        }
+
+        if (isNaN(quantity)) {
+          console.error(
+            `Quantity not set for item: ${item.name}, using default quantity of 0.`
+          );
+        }
+
+        return total + quantity * price;
+      }, 0)
+      .toFixed(2);
   };
 
   return (
@@ -77,7 +112,15 @@ const CartIcon = () => {
           },
         }}
       >
-        <Box sx={{ width: 400, padding: 3 }}>
+        <Box
+          sx={{
+            width: 400,
+            padding: 3,
+            minHeight: "100%",
+            overflowY: "auto",
+            bgcolor: "background.paper",
+          }}
+        >
           <ListItemButton
             style={{
               backgroundColor: "#198057",
@@ -108,44 +151,47 @@ const CartIcon = () => {
                 <path
                   d="m9.17 14.83 5.66-5.66M14.83 14.83 9.17 9.17M9 22h6c5 0 7-2 7-7V9c0-5-2-7-7-7H9C4 2 2 4 2 9v6c0 5 2 7 7 7Z"
                   stroke="#ffffff"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 ></path>
               </svg>
             </Button>
           </ListItemButton>
-          <List sx={{ width: 300, border: "1px solid", margin: "auto" }}>
+
+          {/* FETCHING ALL THE LISTS DIRECTLY FROM THE MODAL */}
+          <List sx={{ width: 350, margin: "auto" }}>
             <List
               style={{
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
                 flexDirection: "column",
+                padding: 0,
               }}
             >
-              {cartItems.map((item, index) => (
+              {cartItems.map((item) => (
                 <ListItem
-                  key={index}
+                  key={item.id}
                   sx={{ display: "flex", justifyContent: "space-between" }}
                 >
-                  <img
-                    src={`https://backendgrocery.000webhostapp.com/${item.images}`}
-                    alt={item.name}
-                    className="w-[4rem]"
-                  />
+                  <div className=" border mr-3 h-[4rem] flex items-center justify-center p-2">
+                    <img
+                      src={`https://backendgrocery.000webhostapp.com/${item.images}`}
+                      alt={item.name}
+                      className="w-[3.5rem]"
+                    />
+                  </div>
                   <ListItemText
                     primary={item.name}
                     secondary={
                       <>
-                        <Typography>
-                          Quantity: 30{item.item_quantity_type}
-                        </Typography>
-                        <Typography>${item.mrp}</Typography>
+                        <Typography>Quantity:{item.quantity}</Typography>
+                        <Typography>${item.selling_price}</Typography>
                       </>
                     }
                   />
-                  <Button onClick={() => removeFromCart(index)}>
+                  <Button onClick={() => removeFromCart(item.id)}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -165,6 +211,42 @@ const CartIcon = () => {
               ))}
             </List>
           </List>
+
+          {/* CHECKOUT BTN STARTS HERE..... */}
+
+          <div style={{ position: "fixed", bottom: 25, width: "80%", maxWidth: "80%" }}>
+            <List>
+              <ListItemText
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                }}
+                primary="Subtotal:"
+                primaryTypographyProps={{
+                  style: { fontSize: "20px", fontWeight: 700 },
+                }}
+                secondary={`$ ${calculateTotal()}`}
+                secondaryTypographyProps={{
+                  style: { fontSize: "20px", fontWeight: 700 },
+                }}
+              ></ListItemText>
+
+              <Button
+                style={{
+                  backgroundColor: "#198057",
+                  color: "white",
+                  display: "flex",
+                  justifyContent: "center",
+                  borderRadius: "8px",
+                  padding: 10,
+                  width: "100%",
+                }}
+              >
+                <Link to="/checkout">Checkout</Link>
+              </Button>
+            </List>
+          </div>
         </Box>
       </SwipeableDrawer>
     </>

@@ -14,24 +14,23 @@ const Hero = () => {
     speed: 2000,
     autoplaySpeed: 5000,
     cssEase: "linear",
-    // nextArrow: <NextArrow />,
-    // prevArrow: <PrevArrow />,
+    arrows: false,
   };
   return (
-    <div className="slider-container mt-[3rem]">
+    <div className="slider-container mt-[3rem] px-4">
       <Slider {...settings}>
-        <div className="rounded-[25px]">
+        <div className="border-none rounded-[25px]">
           <img
             src={FirstImg}
             alt="First Image"
-            className="h-[12.5rem] lg:h-[25rem] w-full rounded-[25px] mr-[2rem]"
+            className="h-[12.5rem] lg:h-[25rem] w-[97%] lg:w-[98%] rounded-[25px] lg:mr-[2rem]"
           />
         </div>
-        <div className="rounded-[25px]">
+        <div className="border-none rounded-[25px]">
           <img
             src={SecondImg}
             alt="First Image"
-            className="h-[12.5rem] lg:h-[25rem] w-full rounded-[25px] mr-[2rem]"
+            className="h-[12.5rem] lg:h-[25rem] w-[97%] rounded-[25px] lg:mr-[2rem]"
           />
         </div>
       </Slider>
