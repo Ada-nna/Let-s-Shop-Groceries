@@ -43,7 +43,7 @@ const Login = () => {
     }
   };
   return (
-    <div className=" container mx-auto w-[90%] max-w-[100%] lg:max-w-[32.5rem] lg:w-[32.5rem] lg:max-h-[24.5rem] bg-slate-200 border shadow-md mt-[10rem] p-6">
+    <div className=" container mx-auto w-[90%] max-w-[100%] lg:max-w-[32.5rem] lg:w-[32.5rem] lg:max-h-[24.5rem] bg-slate-200 border shadow-md mt-[3rem] lg:mt-[10rem] p-6">
       <div className=" flex flex-col justify-center items-center">
         <img src={Logo} alt="Logo" className="w-[7rem]" />
         <h1 className="text-[24px] font-bold mt-3">Create Account</h1>
