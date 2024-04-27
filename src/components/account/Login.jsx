@@ -130,10 +130,10 @@ const Login = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-x-2">
             <input type="checkbox" />
-            <label>Remember me</label>
+            <label className="text-[12px] lg:text-normal">Remember me</label>
           </div>
           <p>
-            <Link>Forget Password</Link>
+            <Link className="text-[12px] lg:text-normal">Forget Password</Link>
           </p>
         </div>
 

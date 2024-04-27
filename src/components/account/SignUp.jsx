@@ -208,7 +208,7 @@ const SignUp = () => {
           {loading ? "Creating..." : "Create Account"}
         </button>
       </form>
-      <p className="text-center font-medium">
+      <p className="text-center font-medium text-[14px] lg:text-normal">
         Already have account?{" "}
         <Link to="/login" className="font-bold">
           Login
