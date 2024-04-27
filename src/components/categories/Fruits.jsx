@@ -4,6 +4,8 @@ import FruitImg from "../../assets/images/orange.png";
 import ModalComponent from "../modal/Modal";
 import { ProductContext } from "../homepage/ProductContext";
 import { UseCartContext } from "../homepage/CartContext";
+import { useAuth } from "../AuthContext";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -21,9 +23,15 @@ const Fruits = () => {
     totalPrice,
   } = useContext(ProductContext);
 
+  const { isLoggedIn } = useAuth();
+
   const handleOpen = (product) => {
-    setOpen(true);
-    setSelectedProductId(product.id);
+    if (!isLoggedIn) {
+      toast.warn("Please log in to add items to your cart.");
+    } else {
+      setOpen(true);
+      setSelectedProductId(product.id);
+    }
   };
 
   const { addToCart } = UseCartContext();
@@ -45,15 +53,19 @@ const Fruits = () => {
     <div>
       <Navbar />
       <div className="bg-[#198057] border h-[4rem] mt-[3rem] flex items-center justify-center gap-x-4">
-        <img src={FruitImg} alt="Fruit Image" className="w-[3.5rem]" />
+        <img
+          src={FruitImg}
+          alt="Fruit Image"
+          className="w-[2.5rem] lg:w-[3.5rem]"
+        />
         <h1 className="text-[#ffffff] text-[20px] lg:text-[24px] font-bold">
           Our Fruit Products
         </h1>
       </div>
-      <div className="container mx-auto mt-8">
+      <div className="container mx-auto mt-8 mb-[5rem]">
         {/* THE CARDS START HERE */}
         <>
-          <div className="mt-[3.5rem]">
+          <div className="mt-[2.5rem] lg:mt-[3.5rem]">
             <div className="grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-[0.7rem] lg:gap-[5rem] 2xl:gap-y-[1.3rem] max-w-[100%] lg:max-w-[95%] 2xl:max-w-[94%] mx-auto lg:mx-0 lg:gap-x-[3.5rem] gap-y-4 lg:gap-y-14 px-5">
               {FruitProducts.length > 0 ? (
                 FruitProducts.map((product) => (

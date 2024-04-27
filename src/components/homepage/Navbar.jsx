@@ -67,7 +67,7 @@ const Navbar = () => {
     <div>
       <nav
         className={`flex items-center justify-between p-3 lg:p-6 border-b sticky top-0 z-[999] ${
-          isSticky ? "bg-[#000] opacity-10" : ""
+          isSticky ? "bg-[#ffffff] opacity-40" : ""
         }`}
       >
         <div className="flex items-center space-x-8">
@@ -245,7 +245,7 @@ const Navbar = () => {
           </form>
         </div>
 
-        <div className="flex items-center space-x-3 lg:space-x-6">
+        <div className="flex items-center space-x-4 lg:space-x-6">
           <>
             <CartIcon />
           </>
@@ -264,7 +264,7 @@ const Navbar = () => {
           ) : (
             <Link
               to="/login"
-              className="bg-[#198057] text-[#ffffff] py:2 md:py-3 px-9 rounded-full"
+              className="bg-[#198057] text-[#ffffff] py-2 px-5 lg:py-3 lg:px-9 rounded-full"
             >
               Login
             </Link>
