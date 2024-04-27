@@ -49,7 +49,7 @@ const Checkout = () => {
   };
 
   return (
-    <div>
+    <div className="mb-[5rem] lg:mb-0">
       <Navbar />
       <div className="bg-[#198057] border h-[4rem] flex items-center justify-center gap-x-4">
         <h1 className="text-[#ffffff] text-[20px] lg:text-[24px] font-bold tracking-wider">
@@ -79,7 +79,7 @@ const Checkout = () => {
                     placeholder={item.placeholder}
                     value={formData[item.name]}
                     onChange={handleInputChange}
-                    className="h-[50px] my-2 w-full border-2 rounded-[12px] border-[#E5E5E5] outline-none focus:border-[#198057] focus:text-[#198057] transition duration-200 px-4 text-black input-field"
+                    className="h-[50px] my-2 w-full border-2 rounded-[12px] border-[#E5E5E5] outline-none focus:border-[#198057] focus:text-[#198057] transition duration-200 text-[13px] lg:text-[16px] px-2 lg:px-4 text-black input-field"
                     onInput={(e) =>
                       e.target.value
                         ? e.target.classList.add("has-content")
