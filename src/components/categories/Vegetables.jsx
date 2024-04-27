@@ -26,7 +26,7 @@ const Vegetables = () => {
 
   const handleOpen = (product) => {
     if (isLoggedIn) {
-      toast.warn("Please log in to add items to your cart.");
+      toast.warn("Please login to add items to your cart.", { autoClose: 1500 });
     } else {
       setOpen(true);
       setSelectedProductId(product.id);
