@@ -36,17 +36,17 @@ const Footer = () => {
             </Link>
           </li>
           <li className="bg-[#198057] hover:bg-[#2b986c] active:bg-[#1f7626] p-2 rounded-full">
-            <Link to="/">
+            <Link to="https://github.com/Ada-nna">
               <Github color="#ffffff" size="18px" />
             </Link>
           </li>
           <li className="bg-[#198057] hover:bg-[#2b986c] active:bg-[#1f7626] p-2 rounded-full">
-            <Link to="/">
+            <Link to="https://www.linkedin.com/in/ctokafor/">
               <Linkedin color="#ffffff" size="18px" />
             </Link>
           </li>
           <li className="bg-[#198057] hover:bg-[#2b986c] active:bg-[#1f7626] p-2 rounded-full">
-            <Link to="/">
+            <Link to="https://twitter.com/girle_45">
               <Twitter color="#ffffff" size="18px" />
             </Link>
           </li>

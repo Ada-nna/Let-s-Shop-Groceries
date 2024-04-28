@@ -74,7 +74,7 @@ const CartIcon = () => {
 
   const getStyles = () => {
     return {
-      width: window.innerWidth > 600 ? '100%' : '80%',
+      width: window.innerWidth > 600 ? "100%" : "80%",
       backgroundColor: "#198057",
       color: "white",
       display: "flex",
@@ -144,9 +144,7 @@ const CartIcon = () => {
             bgcolor: "background.paper",
           }}
         >
-          <ListItemButton
-            style={getStyles()}
-          >
+          <ListItemButton style={getStyles()}>
             Cart Items
             <Button
               onClick={toggleDrawer(false)}
@@ -176,7 +174,12 @@ const CartIcon = () => {
           </ListItemButton>
 
           {/* FETCHING ALL THE LISTS DIRECTLY FROM THE MODAL */}
-          <List sx={{ width: 350, margin: "auto" }}>
+          <List
+            sx={{
+              width: { xs: "80%", sm: "80%", md: 350 },
+              margin: { xs: 1, sm: 1, md: "auto" },
+            }}
+          >
             <List
               style={{
                 display: "flex",
@@ -191,7 +194,7 @@ const CartIcon = () => {
                   key={item.id}
                   sx={{ display: "flex", justifyContent: "space-between" }}
                 >
-                  <div className=" border mr-3 lg:mr-3 h-[4rem] flex items-center justify-center p-2">
+                  <div className=" border mr-3 h-[4rem] flex items-center justify-center p-2">
                     <img
                       src={`https://backendgrocery.000webhostapp.com/${item.images}`}
                       alt={item.name}
