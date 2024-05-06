@@ -30,7 +30,6 @@ const CartIcon = () => {
 
   const removeFromCart = (itemId) => {
     setCartItems((currentItems) => {
-      // currentItems.filter((item) => item.id !== itemId)
       return currentItems.reduce((newCart, item) => {
         if (item.id === itemId) {
           if (item.quantity > 1) {
@@ -69,7 +68,7 @@ const CartIcon = () => {
   };
 
   const drawerStyles = {
-    width: window.innerWidth > 600 ? "100%" : "95%",
+    width: window.innerWidth < 600 && "95%",
   };
 
   const getStyles = () => {
@@ -233,7 +232,7 @@ const CartIcon = () => {
 
           {/* CHECKOUT BTN STARTS HERE..... */}
 
-          <div style={{ position: "fixed", bottom: 25, width: "80%" }}>
+          <div style={{ position: "fixed", bottom: 25, width: "22rem" }}>
             <List>
               <ListItemText
                 style={{
